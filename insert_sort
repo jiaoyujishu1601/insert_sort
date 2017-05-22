@@ -1,0 +1,44 @@
+/*
+  ||  insert_sort
+  ||  writer: wjr
+  ||  welcome to add or change
+  ||  ascending order
+*/
+#define TYPE int
+/*
+*****  插入排序 insert_sort
+*/
+TYPE *insert_sort(TYPE array[],int length){
+  int i,j;
+  int key;
+  /*   假设前j项已排好  */
+  /*   插入第i个元素    */
+  for(i=1;i<length;i++){
+    key=array[i];
+    /*   注意都和要插入的值key比而不是和第i个位置里的值比    */
+    for(j=i-1;j>=0&&array[j]>key;j--){
+      array[j+1]=array[j];
+    }
+    array[j+1]=key;
+  }
+  return array;
+}
+/*
+*****  冒泡法 bubble_sort
+*/
+TYPE *bubble_sort(TYPE array[],int length){
+  int i,j,t;
+  for(i=0;i<length;i++){
+    for(j=0;j<length-i;j++){
+      if(array[j]>array[j+1]){
+        t=array[j];
+        array[j]=array[j+1];
+        array[j+1]=t;
+      }
+    }
+  }
+  return array;
+}
+
+
+
