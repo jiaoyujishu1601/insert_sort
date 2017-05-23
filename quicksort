@@ -1,0 +1,28 @@
+//以下为伪代码方便阅读
+//p：数组开始位置
+//r：数组结束位置
+//q: 数组分断位置
+QUICKSORT FUNCTION START---------------------------
+quicksort(Array A[],int p,int r)
+	//Only p<r can sort
+	//and this is stopping criterion for iteration 
+	if p<r
+		q=partition(A[],p,r);
+		quicksort(A,p,q-1);
+		quicksort(A,q+1,r);
+QUICKSORT　FUNCTION　END---------------------------
+PARTITION FUNCTION START---------------------------
+partition(Array A[],int p,int r)
+	//All less than the value of the KEY in it on the left, 
+	//all values greater than the KEY in it on the right
+	//Define an array of the last value for the key
+	key=A[r];
+	//i is the number of less than value of KEY's value 
+	i=p-1;
+	for j:p to r-1
+		if A[j]<=key
+			i++;
+			exchange A[i] with A[j];
+	exchange A[i+1] with A[r];
+	return i+1;
+PARTITION FUNCTION END------------------------------
